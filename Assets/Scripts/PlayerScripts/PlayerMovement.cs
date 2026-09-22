@@ -17,9 +17,4 @@ public class PlayerMovement : PlayerController
         moveInput = new Vector2(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y);;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
