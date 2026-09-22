@@ -200,7 +200,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 0.96729153, b: 0.6396227, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -504,7 +504,7 @@ GameObject:
   m_Component:
   - component: {fileID: 694727618}
   m_Layer: 0
-  m_Name: Player stuff
+  m_Name: Players
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -569,6 +569,8 @@ GameObject:
   - component: {fileID: 1153253913}
   - component: {fileID: 1153253914}
   - component: {fileID: 1153253912}
+  - component: {fileID: 1153253916}
+  - component: {fileID: 1153253917}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -591,8 +593,8 @@ MonoBehaviour:
   slider: {fileID: 1153253914}
   gradient:
     serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0.85098046, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key0: {r: 0.45098042, g: 0.9607844, b: 0.47450984, a: 1}
+    key1: {r: 0.45098042, g: 0.9607844, b: 0.47450984, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
@@ -629,7 +631,7 @@ RectTransform:
   m_GameObject: {fileID: 1153253911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.096706405, y: 0.3488338, z: 0.17269}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 623731373}
@@ -638,8 +640,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.97, y: 169.18}
-  m_SizeDelta: {x: 652.15, y: 38.63}
+  m_AnchoredPosition: {x: -142.4, y: -43.3}
+  m_SizeDelta: {x: 642.15, y: 36.37}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1153253914
 MonoBehaviour:
@@ -680,7 +682,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1167559714}
   m_HandleRect: {fileID: 0}
@@ -688,10 +690,57 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 92
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!50 &1153253916
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153253911}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!254 &1153253917
+RelativeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153253911}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1203199170}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_MaxForce: 10000
+  m_MaxTorque: 10000
+  m_CorrectionScale: 0.3
+  m_AutoConfigureOffset: 0
+  m_LinearOffset: {x: 0, y: 0.5894711}
+  m_AngularOffset: 0
 --- !u!1 &1167559711
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +814,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1203199169
 GameObject:
@@ -881,7 +930,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.97735846, g: 0.85648465, b: 0.04978988, a: 1}
+  m_Color: {r: 0.35799757, g: 0.050980397, b: 0.9764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1125,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87713ef235222e64ab944ec2b5c9f2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 5
+  maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 1153253912}
 --- !u!1 &1270443699
@@ -1192,11 +1241,11 @@ RectTransform:
   - {fileID: 1167559714}
   m_Father: {fileID: 1153253913}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: -4.9999695, y: 0}
-  m_SizeDelta: {x: -20, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 9}
+  m_SizeDelta: {x: 0, y: 18}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &1511491672
 GameObject:
   m_ObjectHideFlags: 0

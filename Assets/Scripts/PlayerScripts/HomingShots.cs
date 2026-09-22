@@ -8,6 +8,11 @@ public class HomingShots : MonoBehaviour
 
     private Rigidbody2D rb;
     private Transform target;
+    public static int bulletDamage = 20; 
+    /*seria pog fazer um manager pra tiros no geral pra esse valor mudar de acordo com a bala né
+    pq o EnemieHealth ta tomando dano só dessa bala, ai como eu 'riza' não quero tem um milhão de linhas pra cada bala
+    um dia eu faço um manager pra elas. *emoji de flor caida**/
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -19,7 +24,6 @@ public class HomingShots : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (target == null)
@@ -30,7 +34,7 @@ public class HomingShots : MonoBehaviour
         float rotateAmount = Vector3.Cross(direction, transform.up).z;
 
         rb.angularVelocity = -rotateAmount * (rotationSpeed * 10f);
-        rb.linearVelocity = transform.up * bulletSpeed;
+        rb.linearVelocity = direction * bulletSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -5,17 +5,24 @@ using System.Collections;
 
 public class AutoShots : MonoBehaviour
 {   
-        public GameObject bulletPrefab;
-        public UnityEvent fireEvent;
-        public static float bulletSpeed = 10f, bulletInterval = 0.7f;
-        public Transform firePoint; 
-        public static bool canThrow = true;
+    public GameObject bulletPrefab;
+    public UnityEvent fireEvent;
+    public static float bulletSpeed = 10f, bulletInterval = 0.7f;
+    public Transform firePoint; 
+    public static bool canThrow = true;
 
 
     public void Start()
     {
         StartCoroutine(FireLoop());
     } 
+    public void FixedUpdate()
+    {
+        if (canThrow == false)
+        {
+            StopCoroutine(FireLoop());
+        }
+    }
     
     IEnumerator FireLoop()
     {
@@ -33,4 +40,5 @@ public class AutoShots : MonoBehaviour
             yield return new WaitForSeconds(bulletInterval);
         }            
     }
+    
 }
